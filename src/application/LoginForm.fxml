@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="373.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginFormController">
+   <center>
+      <TitledPane animated="false" prefHeight="373.0" prefWidth="649.0" text="Log In" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="100.0" layoutY="131.0" text="Username:" />
+                  <TextField fx:id="tfUsername" layoutX="176.0" layoutY="127.0">
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </TextField>
+                  <Label layoutX="101.0" layoutY="180.0" text="Password:" />
+                  <Button layoutX="176.0" layoutY="264.0" mnemonicParsing="false" onAction="#logInUser" text="Log In" />
+                  <CheckBox layoutX="176.0" layoutY="218.0" mnemonicParsing="false" text="I am not robot" />
+                  <Label layoutX="166.0" layoutY="61.0" prefHeight="32.0" prefWidth="132.0" text="Please Log In" textFill="RED">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="tfPassword" layoutX="176.0" layoutY="176.0">
+                     <effect>
+                        <BoxBlur />
+                     </effect>
+                  </PasswordField>
+                  <Button layoutX="251.0" layoutY="264.0" mnemonicParsing="false" onAction="#newWindow" text="Create user" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <effect>
+                  <Reflection />
+               </effect>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </center>
+</BorderPane>
