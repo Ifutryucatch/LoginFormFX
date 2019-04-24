@@ -1,0 +1,5 @@
+ADMIN: username: Ivkonymax
+	password: Pringles98
+
+USER: username:mamamia
+	password: 12345678
