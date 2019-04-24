@@ -20,42 +20,58 @@ public class LoginFormController implements Initializable{
 	@FXML private TextField tfPassword;
 	
 	private Alert a = new Alert(Alert.AlertType.ERROR);
-	private StringBuilder errorText = new StringBuilder();
-	
+
 	@FXML
 	private void logInUser(ActionEvent event) {
+		//GETING TEXT FROM TEXT FIELD THEN PARSING TO STRING BECAUSE WE MUST HAVE STRING FOR DAO WICH COMUNICATE WITH DATA BASE
 		String username = tfUsername.getText().toString();
 		String password = tfPassword.getText().toString();
 		
 		boolean error = false;
 		
-		if(username == UserDAO.getUserUsername(Main.getConn(), username).getUsername()) {
-			errorText.append("Invalid username!");
-			error = false;
-		}
-		
-		else if(password == UserDAO.getUserPassword(Main.getConn(), password).getPassword()) {
-			errorText.append("Invalid password!");
-			error = false;
-		}
-		
-		if(error == true) {
+		//CHECKING IF USERNAME FROM TEXT FILED EXIST IN DATA BASE
+		if(!username.equals(UserDAO.getUserUsername(Main.getConn(), username).getUsername())) {
 			a.setTitle("Error!");
-			a.setHeaderText("Problems: \n");
-			a.setContentText(errorText.toString());
+			a.setHeaderText("Invalid username");
 			a.showAndWait();
+			error = true;
 		}
 		
-		else if(error == false) {
+		//CHECKING IF PASSWORD FROM TEXT FILED EXIST IN DATA BASE
+		if(!password.equals(UserDAO.getUserPassword(Main.getConn(), password).getPassword())) {
+			a.setTitle("Error!");
+			a.setHeaderText("Invalid password");
+			a.showAndWait();
+			error = true;
+		}
+		
+		//GETING ROLE AND THEN WE DECIDE WICH WINDOW WILL WE OPEN
+		String role = UserDAO.getUserPassword(Main.getConn(), tfPassword.getText().toString()).getRole();
+		if(role.equals("admin")) {
+			newWindowAdmin(event);
+		}
+		
+		if(role.equals("user")) {
+			newWindowUser(event);
+		}
+		
+		if(error == false) {
 			a.setTitle("Success!");
 			a.setHeaderText("Successfully loged in!");
 			a.showAndWait();
 			clear();
 		}
+		
+		if(error == true) {
+			a.setTitle("Error!");
+			a.setHeaderText("Try again!");
+			a.showAndWait();
+			clear();
+		}
 	}
-	
-	@FXML
-	private void newWindow(ActionEvent event){
+
+	//CREATING NEW ADMIN WINDOW
+	private void newWindowAdmin(ActionEvent event){
 		try {
 			FXMLLoader fxmloader = new FXMLLoader(getClass().getResource("AddUser.fxml"));
 			Parent rootl = (Parent) fxmloader.load();
@@ -69,6 +85,22 @@ public class LoginFormController implements Initializable{
 		}
 	}
 	
+	//CREATING NEW USER WINDOW
+	private void newWindowUser(ActionEvent event){
+		try {
+			FXMLLoader fxmloader = new FXMLLoader(getClass().getResource("User.fxml"));
+			Parent rootl = (Parent) fxmloader.load();
+			Stage stage = new Stage();
+			stage.setTitle("New windows");
+			stage.setScene(new Scene(rootl));
+			stage.show();
+		
+		}catch(Exception e) {
+			System.err.println("Novi prozor");
+		}
+	}
+	
+
 	private void clear() {
 		tfUsername.setText("");
 		tfPassword.setText("");
