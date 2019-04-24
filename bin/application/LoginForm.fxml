@@ -27,9 +27,9 @@
                      </effect>
                   </TextField>
                   <Label layoutX="101.0" layoutY="180.0" text="Password:" />
-                  <Button layoutX="176.0" layoutY="264.0" mnemonicParsing="false" onAction="#logInUser" text="Log In" />
+                  <Button layoutX="209.0" layoutY="264.0" mnemonicParsing="false" onAction="#logInUser" text="Log In" />
                   <CheckBox layoutX="176.0" layoutY="218.0" mnemonicParsing="false" text="I am not robot" />
-                  <Label layoutX="166.0" layoutY="61.0" prefHeight="32.0" prefWidth="132.0" text="Please Log In" textFill="RED">
+                  <Label layoutX="166.0" layoutY="61.0" prefHeight="32.0" prefWidth="132.0" text="Please Log In">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -39,7 +39,6 @@
                         <BoxBlur />
                      </effect>
                   </PasswordField>
-                  <Button layoutX="251.0" layoutY="264.0" mnemonicParsing="false" onAction="#newWindow" text="Create user" />
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
