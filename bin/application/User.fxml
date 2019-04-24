@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="application.UserController">
+   <center>
+      <Pane prefHeight="409.0" prefWidth="530.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="table" layoutX="146.0" layoutY="61.0" prefHeight="287.0" prefWidth="238.0">
+              <columns>
+                <TableColumn fx:id="usernameC" prefWidth="118.0" text="Username" />
+                <TableColumn fx:id="roleC" prefWidth="119.0" text="Role" />
+              </columns>
+            </TableView>
+            <Label layoutX="193.0" layoutY="14.0" text="Welcome user">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
