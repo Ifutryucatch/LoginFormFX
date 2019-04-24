@@ -5,6 +5,7 @@ public class User {
 	private Integer id;
 	private String username;
 	private String password;
+	private String role;
 	
 	public User() {}
 
@@ -13,9 +14,26 @@ public class User {
 		this.username = username;
 		this.password = password;
 	}
+	
+	
+
+	public User(String username, String password, String role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
 
 	public Integer getId() {
 		return id;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public void setId(Integer id) {
@@ -40,7 +58,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
+		return "Username: " + username + " Password: " + password + " Role: " + role;
 	}
 	
 	
